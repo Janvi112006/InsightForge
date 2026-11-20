@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InsightForge - Research Paper Summariser</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>InsightForge</h1>
+        <p>AI-Powered Research Paper Summariser</p>
+
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="pdf" accept=".pdf" required>
+            <button type="submit">Summarise Paper</button>
+        </form>
+
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+
+        {% if summary %}
+            <div class="result">
+                <h2>Research Paper Summary</h2>
+                <div class="summary">{{ summary }}</div>
+            </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
